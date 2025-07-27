@@ -3168,6 +3168,7 @@ margin-top: 10%;
   margin-bottom: 12rem;
 }
 
+
 @media screen and (max-width: 767px) {
   .serv_feature {
     margin-bottom: 10rem;
@@ -3261,6 +3262,11 @@ margin-top: 10%;
   .serv_feature dd {
     font-size: 1.8rem;
   }
+
+.mt10{
+  margin-top: -10px;
+}
+
 }
 
 .serv_list {
