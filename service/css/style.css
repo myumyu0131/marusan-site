@@ -106,6 +106,10 @@ input[type="submit"], input[type="button"], button {
     opacity: 0;
 }
 
+.my-image {
+  border: none;
+  outline: none;
+}
 
 #header:before {
     content: '';
