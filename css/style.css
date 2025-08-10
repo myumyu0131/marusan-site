@@ -106,6 +106,10 @@ input[type="submit"], input[type="button"], button {
     opacity: 0;
 }
 
+.my-image {
+  border: none;
+  outline: none;
+}
 
 #header:before {
     content: '';
@@ -1514,7 +1518,6 @@ margin-top: 10%;
 .case_list img {
   width: 100%;
   object-fit: cover;
-  aspect-ratio: 3 / 2;
 }
 
 .case_list p {
@@ -1527,11 +1530,34 @@ margin-top: 10%;
   }
 }
 
+
+/* PCでは非表示（スマホでは表示） */
+.pchide {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .pchide {
+    display: block; /* または必要に応じて inline, flex など */
+  }
+}
+
+/* SPでは非表示（PCでは表示） */
+.sphide {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .sphide {
+    display: none;
+  }
+}
+
 .case_list i {
   display: inline-block;
-  background: #dea8d0;
+  background: #52a6d2;
   border-radius: 3em;
-  font-size: 1.4rem;
+  font-size: 2.4rem;
   color: #fff;
   padding: .2em .8em;
   margin-bottom: .6em;
@@ -1541,6 +1567,7 @@ margin-top: 10%;
   .case_list i {
     padding: .4em 1.5em;
     margin-bottom: 1.4em;
+    font-size: 1.8rem;
   }
 }
 
@@ -1551,7 +1578,7 @@ margin-top: 10%;
     gap: 2.8rem;
   }
   .case_list li {
-    width: calc(33.33% - 1.866rem);
+    width: 100%;
   }
 }
 
@@ -3165,7 +3192,7 @@ margin-top: 10%;
 }
 
 .serv_feature {
-  margin-bottom: 12rem;
+  margin-bottom: 2%;
 }
 
 
@@ -3266,7 +3293,6 @@ margin-top: 10%;
 .mt10{
   margin-top: -10px;
 }
-
 }
 
 .serv_list {
@@ -3282,7 +3308,6 @@ margin-top: 10%;
     padding: 10rem 0 14rem;
   }
   .serv_list ul {
-    display: flex;
     flex-wrap: wrap;
     gap: 4rem 3.3rem;
   }
@@ -3302,18 +3327,26 @@ margin-top: 10%;
 
 @media screen and (min-width: 768px) {
   .serv_list li {
-    width: calc(50% - 1.65rem);
+    width: calc(80% - 1.65rem);
+    margin-top: 14px;
   }
   .serv_list li a {
     display: flex;
     flex-flow: row-reverse;
   }
   .serv_list li figure {
-    width: 21rem;
+    width: 50%;
   }
   .serv_list li dl {
     width: calc(100% - 21rem);
   }
+
+  figure {
+  display: flex;
+  gap: 4px; /* 画像の間にすき間が欲しいなら */
+}
+
+
 }
 
 .serv_list li a:hover, .serv_list li a.active {
@@ -3325,7 +3358,7 @@ margin-top: 10%;
 }
 
 .serv_list dl {
-  padding: 5rem 4rem 0;
+  padding: 5rem 5rem;
   transition: background .2s ease-in;
 }
 
@@ -4088,7 +4121,7 @@ margin-top: 10%;
     margin-bottom: 3.3rem;
   }
   .list_wrap .list {
-    width: 92rem;
+    width: 120rem;
   }
 }
 
@@ -4101,6 +4134,10 @@ margin-top: 10%;
   .list_wrap .sidebar dt {
     margin-bottom: 2rem;
   }
+}
+
+.image_flex{
+display: flex;
 }
 
 .list_wrap .sidebar a {
