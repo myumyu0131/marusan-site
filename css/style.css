@@ -875,6 +875,10 @@ Layout/PageBase
   }
 }
 
+.cc_image{
+  width: 50%;
+  padding-top: 2%;
+}
 .f_logo {
   margin-bottom: 4rem;
 }
