@@ -592,7 +592,7 @@ Layout/PageBase
 @media screen and (min-width: 768px) {
   .h_nav {
     display: flex;
-    gap: 4rem;
+    gap: 2rem;
   }
   .h_nav > li {
     height: 8rem;
@@ -827,7 +827,7 @@ Layout/PageBase
   letter-spacing: .05em;
   background: url(../img/arrow_right04.svg) no-repeat right bottom/2.8rem;
   margin-right: 3rem;
-  margin-left: 9.6rem;
+  margin-left: 7rem;
   padding-top: 1.7em;
 }
 
