@@ -876,7 +876,7 @@ Layout/PageBase
 }
 
 .cc_image{
-  width: 100%;
+  width: 52%;
   padding-top: 2%;
 }
 .f_logo {
@@ -887,6 +887,11 @@ Layout/PageBase
   .f_logo {
     margin-bottom: 2.5rem;
   }
+
+  .cc_image{
+  width: 100%;
+  padding-top: 2%;
+}
 }
 
 .f_logo img {
