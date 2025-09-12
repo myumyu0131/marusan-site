@@ -1181,17 +1181,19 @@ Project
   white-space: nowrap;
   letter-spacing: .3em;
   padding-top: 1em;
-  line-height: 1;
+  line-height: 1.6;
 }
 
 
 
 @media screen and (max-width: 767px) {
-  .top_main .catch {
-    font-size:2rem;
-    padding-top:45px;
-    letter-spacing: .2em;
-  }
+     .top_main .catch {
+        font-size: 2rem;
+        padding-top: 45px;
+        letter-spacing: 0.2em;
+        line-height: 3.2em;
+        text-align: center;
+    }
 }
 
 .top_main .catch i {
@@ -1199,12 +1201,11 @@ Project
 }
 
 @media screen and (max-width: 767px) {
-  .top_main .catch i {
-    font-size: 7rem;
-    margin-bottom: .1em;
-  }
+      .top_main .catch i {
+        font-size: 4rem;
+        margin-bottom: .1em;
 }
-
+}
 .top_main .catch small {
   display: block;
   font-size: 1.4rem;
