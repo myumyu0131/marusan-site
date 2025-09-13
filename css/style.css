@@ -6273,31 +6273,32 @@ margin-top: 10%;
   display: block; /* 余白防止。displayは上の!importantが勝つのでOK */
 }
 
-.slide .item {
-  min-height: 100vh;              /* 画面高いっぱい */
-  display: grid;                   /* 画像を中央配置しやすい */
-  place-items: center;             /* 中央寄せ */
-  background: #52a6d2;   /* ←ここを変更 */              /* 余白が出るのでお好みの色に */
-  overflow: hidden;                /* 念のため */
+/* 画像切替のdisplay制御はそのままでOK */
+
+/* スライドの縦サイズ：スマホで安定するように */
+.slide .item{
+  /* 先にある min-height:100vh/92vh は残っていてOK。
+     その下に svh/dvh を追加して上書きさせると安定します。 */
+  min-height: 92svh;   /* iOSなどでアドレスバー分の揺れが少ない */
 }
 
-/* 画像は最大で親に収める。高さは固定しない！ */
-.slide .item > img {
-  max-width: 100%;
-  max-height: 100vh;               /* 画面高を上限に収める */
-  width: auto;
-  height: auto;
+/* ここが本丸：余白を消す（トリミングあり） */
+.slide .item > img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;     /* ← contain から cover に */
+  object-position: center;          /* 好みで top / bottom に可 */
   display: block;
-  object-fit: contain;             /* 重要：見切れない */
-  object-position: center;         /* 必要なら top / bottom で微調整 */
+  max-width: none;                   /* 以前の max-* を無効化 */
+  max-height: none;                  /* 以前の max-* を無効化 */
 }
 
-/* スマホはアドレスバーでvhが揺れるので少し余裕を持たせると安定 */
-@media (max-width: 767px) {
-  .slide .item {
-    min-height: 92vh;              /* 好みで 90〜95vh くらいに */
-  }
-  .slide .item > img {
-    max-height: 92vh;
-  }
+/* slickのビューポート側の色（万一のはみ出し時） */
+.slick-list{
+  background: #52a6d2;
+  overflow: hidden;                  /* 念のため */
 }
+
+/* slick-trackを横並びにして高さを親に合わせる */
+.slick-track{ display:flex; }
+.slick-slide{ height:auto; } 
