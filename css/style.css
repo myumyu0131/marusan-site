@@ -1408,7 +1408,7 @@ Project
   .top_service li a {
     font-size: 1.6rem;
     padding: 1.3em 0;
-    padding-left: 5.8rem;
+    padding-left: 0rem;
     background-size: 1.3rem;
     background-position: calc(100% - 1.7rem) center;
   }
