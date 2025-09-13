@@ -1146,25 +1146,7 @@ Project
   height: auto;
 }
 
-/* --- PC（幅768px以上） --- */
-@media screen and (min-width: 768px) {
-  .pc_hide {
-    display: none;  /* PCでは非表示 */
-  }
-  .sp_hide {
-    display: block; /* PCでは表示 */
-  }
-}
 
-/* --- スマホ（幅767px以下） --- */
-@media screen and (max-width: 767px) {
-  .pc_hide {
-    display: block; /* SPでは表示 */
-  }
-  .sp_hide {
-    display: none;  /* SPでは非表示 */
-  }
-}
 
 .top_main .catch {
   position: absolute;
@@ -2169,14 +2151,18 @@ margin-top: 10%;
   min-height: 1px;
   display: none;
 }
+.slide img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;   /* coverで拡大、見切れあり */
+  object-position: top; /* 表示位置の調整 */
+}
 
 [dir="rtl"] .slick-slide {
   float: right;
 }
 
-.slick-slide img {
-  display: block;
-}
+
 
 .slick-slide.slick-loading img {
   display: none;
@@ -6268,4 +6254,50 @@ margin-top: 10%;
 	.transfer {
 		transform: translateY(-8rem) !important;
 	}
+}
+
+/* 先に全部 block させられても勝てるように、より具体的＆!important で上書き */
+.slide .item > img.pc_hide { display: none !important; }
+.slide .item > img.sp_hide { display: block !important; }
+
+/* スマホで反転 */
+@media (max-width: 767px) {
+  .slide .item > img.pc_hide { display: block !important; }
+  .slide .item > img.sp_hide { display: none !important; }
+}
+
+/* 共通の見た目（display以外） */
+.slide .item > img { 
+  width: 100%;
+  height: auto;
+  display: block; /* 余白防止。displayは上の!importantが勝つのでOK */
+}
+
+.slide .item {
+  min-height: 100vh;              /* 画面高いっぱい */
+  display: grid;                   /* 画像を中央配置しやすい */
+  place-items: center;             /* 中央寄せ */
+  background: #52a6d2;   /* ←ここを変更 */              /* 余白が出るのでお好みの色に */
+  overflow: hidden;                /* 念のため */
+}
+
+/* 画像は最大で親に収める。高さは固定しない！ */
+.slide .item > img {
+  max-width: 100%;
+  max-height: 100vh;               /* 画面高を上限に収める */
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: contain;             /* 重要：見切れない */
+  object-position: center;         /* 必要なら top / bottom で微調整 */
+}
+
+/* スマホはアドレスバーでvhが揺れるので少し余裕を持たせると安定 */
+@media (max-width: 767px) {
+  .slide .item {
+    min-height: 92vh;              /* 好みで 90〜95vh くらいに */
+  }
+  .slide .item > img {
+    max-height: 92vh;
+  }
 }
