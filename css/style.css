@@ -106,6 +106,10 @@ input[type="submit"], input[type="button"], button {
     opacity: 0;
 }
 
+.my-image {
+  border: none;
+  outline: none;
+}
 
 #header:before {
     content: '';
@@ -823,7 +827,7 @@ Layout/PageBase
   letter-spacing: .05em;
   background: url(../img/arrow_right04.svg) no-repeat right bottom/2.8rem;
   margin-right: 3rem;
-  margin-left: 7rem;
+  margin-left: 9.6rem;
   padding-top: 1.7em;
 }
 
@@ -875,10 +879,6 @@ Layout/PageBase
   }
 }
 
-.cc_image{
-  width: 52%;
-  padding-top: 2%;
-}
 .f_logo {
   margin-bottom: 4rem;
 }
@@ -887,11 +887,6 @@ Layout/PageBase
   .f_logo {
     margin-bottom: 2.5rem;
   }
-
-  .cc_image{
-  width: 100%;
-  padding-top: 2%;
-}
 }
 
 .f_logo img {
@@ -1146,7 +1141,25 @@ Project
   height: auto;
 }
 
+/* --- PC（幅768px以上） --- */
+@media screen and (min-width: 768px) {
+  .pc_hide {
+    display: none;  /* PCでは非表示 */
+  }
+  .sp_hide {
+    display: block; /* PCでは表示 */
+  }
+}
 
+/* --- スマホ（幅767px以下） --- */
+@media screen and (max-width: 767px) {
+  .pc_hide {
+    display: block; /* SPでは表示 */
+  }
+  .sp_hide {
+    display: none;  /* SPでは非表示 */
+  }
+}
 
 .top_main .catch {
   position: absolute;
@@ -1163,31 +1176,30 @@ Project
   white-space: nowrap;
   letter-spacing: .3em;
   padding-top: 1em;
-  line-height: 1.6;
+  line-height: 1;
 }
 
 
 
 @media screen and (max-width: 767px) {
-     .top_main .catch {
-        font-size: 2rem;
-        padding-top: 45px;
-        letter-spacing: 0.2em;
-        line-height: 3.2em;
-        text-align: center;
-    }
+  .top_main .catch {
+    font-size:2rem;
+    padding-top:45px;
+    letter-spacing: .2em;
+  }
 }
 
 .top_main .catch i {
-  font-size: 6rem;
+  font-size: 11rem;
 }
 
 @media screen and (max-width: 767px) {
-      .top_main .catch i {
-        font-size: 3rem;
-        margin-bottom: .1em;
+  .top_main .catch i {
+    font-size: 7rem;
+    margin-bottom: .1em;
+  }
 }
-}
+
 .top_main .catch small {
   display: block;
   font-size: 1.4rem;
@@ -1399,7 +1411,7 @@ Project
   position: relative;
   background: url(../img/arrow_right06.svg) no-repeat calc(100% - 1em) center/1.27em;
   padding: 1em 0;
-  padding-left: 0em;
+  padding-left: 4.8em;
   display: block;
   border-radius: .5rem;
 }
@@ -1408,7 +1420,7 @@ Project
   .top_service li a {
     font-size: 1.6rem;
     padding: 1.3em 0;
-    padding-left: 0rem;
+    padding-left: 5.8rem;
     background-size: 1.3rem;
     background-position: calc(100% - 1.7rem) center;
   }
@@ -1506,7 +1518,6 @@ margin-top: 10%;
 .case_list img {
   width: 100%;
   object-fit: cover;
-  aspect-ratio: 3 / 2;
 }
 
 .case_list p {
@@ -1519,11 +1530,34 @@ margin-top: 10%;
   }
 }
 
+
+/* PCでは非表示（スマホでは表示） */
+.pchide {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .pchide {
+    display: block; /* または必要に応じて inline, flex など */
+  }
+}
+
+/* SPでは非表示（PCでは表示） */
+.sphide {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .sphide {
+    display: none;
+  }
+}
+
 .case_list i {
   display: inline-block;
-  background: #dea8d0;
+  background: #52a6d2;
   border-radius: 3em;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   color: #fff;
   padding: .2em .8em;
   margin-bottom: .6em;
@@ -1533,6 +1567,7 @@ margin-top: 10%;
   .case_list i {
     padding: .4em 1.5em;
     margin-bottom: 1.4em;
+    font-size: 1.8rem;
   }
 }
 
@@ -1543,7 +1578,7 @@ margin-top: 10%;
     gap: 2.8rem;
   }
   .case_list li {
-    width: calc(33.33% - 1.866rem);
+    width: 100%;
   }
 }
 
@@ -2151,18 +2186,14 @@ margin-top: 10%;
   min-height: 1px;
   display: none;
 }
-.slide img {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;   /* coverで拡大、見切れあり */
-  object-position: top; /* 表示位置の調整 */
-}
 
 [dir="rtl"] .slick-slide {
   float: right;
 }
 
-
+.slick-slide img {
+  display: block;
+}
 
 .slick-slide.slick-loading img {
   display: none;
@@ -3161,7 +3192,7 @@ margin-top: 10%;
 }
 
 .serv_feature {
-  margin-bottom: 12rem;
+  margin-bottom: 2%;
 }
 
 
@@ -3262,7 +3293,6 @@ margin-top: 10%;
 .mt10{
   margin-top: -10px;
 }
-
 }
 
 .serv_list {
@@ -3278,7 +3308,6 @@ margin-top: 10%;
     padding: 10rem 0 14rem;
   }
   .serv_list ul {
-    display: flex;
     flex-wrap: wrap;
     gap: 4rem 3.3rem;
   }
@@ -3298,18 +3327,26 @@ margin-top: 10%;
 
 @media screen and (min-width: 768px) {
   .serv_list li {
-    width: calc(50% - 1.65rem);
+    width: calc(80% - 1.65rem);
+    margin-top: 14px;
   }
   .serv_list li a {
     display: flex;
     flex-flow: row-reverse;
   }
   .serv_list li figure {
-    width: 21rem;
+    width: 50%;
   }
   .serv_list li dl {
     width: calc(100% - 21rem);
   }
+
+  figure {
+  display: flex;
+  gap: 4px; /* 画像の間にすき間が欲しいなら */
+}
+
+
 }
 
 .serv_list li a:hover, .serv_list li a.active {
@@ -3321,7 +3358,7 @@ margin-top: 10%;
 }
 
 .serv_list dl {
-  padding: 5rem 4rem 0;
+  padding: 5rem 5rem;
   transition: background .2s ease-in;
 }
 
@@ -3793,7 +3830,7 @@ margin-top: 10%;
 
 .faci_sec {
   background: rgba(208, 232, 230, 0.5);
-  padding: 8rem 0 12rem;
+  padding: 0rem 0 12rem;
 }
 
 .faci_sec.b {
@@ -3802,8 +3839,12 @@ margin-top: 10%;
 
 @media screen and (max-width: 767px) {
   .faci_sec {
-    padding: 8rem 0;
+            padding: 0rem 0;
+        padding-bottom: 32px;
+        padding-top: 20px;
+        margin-top: -50px;
   }
+  
 }
 
 @media screen and (min-width: 768px) {
@@ -4084,7 +4125,7 @@ margin-top: 10%;
     margin-bottom: 3.3rem;
   }
   .list_wrap .list {
-    width: 92rem;
+    width: 120rem;
   }
 }
 
@@ -4097,6 +4138,10 @@ margin-top: 10%;
   .list_wrap .sidebar dt {
     margin-bottom: 2rem;
   }
+}
+
+.image_flex{
+display: flex;
 }
 
 .list_wrap .sidebar a {
@@ -6255,50 +6300,3 @@ margin-top: 10%;
 		transform: translateY(-8rem) !important;
 	}
 }
-
-/* 先に全部 block させられても勝てるように、より具体的＆!important で上書き */
-.slide .item > img.pc_hide { display: none !important; }
-.slide .item > img.sp_hide { display: block !important; }
-
-/* スマホで反転 */
-@media (max-width: 767px) {
-  .slide .item > img.pc_hide { display: block !important; }
-  .slide .item > img.sp_hide { display: none !important; }
-}
-
-/* 共通の見た目（display以外） */
-.slide .item > img { 
-  width: 100%;
-  height: auto;
-  display: block; /* 余白防止。displayは上の!importantが勝つのでOK */
-}
-
-/* 画像切替のdisplay制御はそのままでOK */
-
-/* スライドの縦サイズ：スマホで安定するように */
-.slide .item{
-  /* 先にある min-height:100vh/92vh は残っていてOK。
-     その下に svh/dvh を追加して上書きさせると安定します。 */
-  min-height: 92svh;   /* iOSなどでアドレスバー分の揺れが少ない */
-}
-
-/* ここが本丸：余白を消す（トリミングあり） */
-.slide .item > img{
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;     /* ← contain から cover に */
-  object-position: center;          /* 好みで top / bottom に可 */
-  display: block;
-  max-width: none;                   /* 以前の max-* を無効化 */
-  max-height: none;                  /* 以前の max-* を無効化 */
-}
-
-/* slickのビューポート側の色（万一のはみ出し時） */
-.slick-list{
-  background: #52a6d2;
-  overflow: hidden;                  /* 念のため */
-}
-
-/* slick-trackを横並びにして高さを親に合わせる */
-.slick-track{ display:flex; }
-.slick-slide{ height:auto; } 
